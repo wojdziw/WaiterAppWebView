@@ -8,7 +8,7 @@ from .models import Greeting
 def index(request):
     return render(request, 'index.html')
 
-def getActiveOrders():
+def getActiveOrders(request):
     os.path.join(os.path.dirname(os.path.dirname(__file__)),'orders.json')
     with open('orders.json') as json_data:
         return HttpResponse(json_data)
