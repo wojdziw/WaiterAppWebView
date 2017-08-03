@@ -31,6 +31,9 @@ module.exports = {
     
     module: {
         loaders: [
+            { test: /\.json$/,
+                loader: 'json-loader'
+            },
             //a regexp that tells webpack use the following loaders on all 
             //.js and .jsx files
             {test: /\.jsx?$/, 
@@ -51,6 +54,6 @@ module.exports = {
         //tells webpack where to look for modules
         modulesDirectories: ['node_modules'],
         //extensions that should be used to resolve modules
-        extensions: ['', '.js', '.jsx'] 
+        extensions: ['', '.js', '.jsx', '.json'] 
     }   
 }

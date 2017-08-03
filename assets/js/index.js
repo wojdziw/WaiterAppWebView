@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class Hello extends Component {
-    render() {
-        return (
-            <h1>
-                Hello, React!
-            </h1>
-        )
-    }
+import store from './config/store';
+import { Provider } from 'react-redux'
+import Hello from './Hello'
+
+class Index extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Hello {...this.props}/>
+      </Provider>
+    )
+  }
 }
 
-ReactDOM.render(<Hello />, document.getElementById('container'))
+ReactDOM.render(<Index />, document.getElementById('container'))
