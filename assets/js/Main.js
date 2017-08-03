@@ -7,19 +7,25 @@ import { Order } from './components/Order.js'
 
 class Main extends Component {
 
-  componentWillMount() {
-    this.props.fetchOrders();
+  componentDidMount() {
+      setInterval(() => {
+        this.props.fetchOrders();
+      }, 5000)
+    
+    
   }
 
   render() {
     return (
       <div>
         <NavBar />
-        {Object.values(this.props.orders).map((position) => {
-          return (
-            <Order key={position.id} id={position.id} {...this.props}/>
-          )
-        })}
+        { (Object.keys(this.props.orders).length > 1) &&
+          Object.values(this.props.orders).map((position) => {
+            return (
+              <Order key={position.id} id={position.id} {...this.props}/>
+            )
+          })
+        }
       </div>
     )
   }
