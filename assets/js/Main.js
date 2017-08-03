@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { NavBar } from './components/NavBar.js'
 import { Order } from './components/Order.js'
 
-class Hello extends Component {
+class Main extends Component {
 
   componentWillMount() {
     this.props.fetchOrders();
@@ -15,7 +15,11 @@ class Hello extends Component {
     return (
       <div>
         <NavBar />
-        <Order />
+        {Object.values(this.props.orders).map((position) => {
+          return (
+            <Order key={position.id} id={position.id} {...this.props}/>
+          )
+        })}
       </div>
     )
   }
@@ -29,4 +33,4 @@ function mapStateToProps(state) {
     orders: state.orders
   };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Hello);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

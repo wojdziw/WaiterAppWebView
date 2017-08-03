@@ -9,7 +9,11 @@ export function setOrders(orders) {
 
 export function fetchOrders() {
   return(dispatch, getState) => {
-    let orders = require("../../../orders.json");
+    let ordersJson = require("../../../orders.json");
+    let orders = ordersJson.reduce((map, obj) => {
+      map[obj.id] = obj;
+      return map;
+    }, {});
     dispatch(setOrders(orders));
   }
 }

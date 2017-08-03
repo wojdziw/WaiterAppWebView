@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 
 import store from './config/store';
 import { Provider } from 'react-redux'
-import Hello from './Hello'
+import Main from './Main'
 
 class Index extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Hello {...this.props}/>
+        <Main {...this.props}/>
       </Provider>
     )
   }

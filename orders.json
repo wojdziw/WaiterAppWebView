@@ -45,7 +45,7 @@
 
   {
     "id": "308affb5-b4e1-4fdb-b0bf-a7cb0b4639e4", 
-    "status": 3,
+    "status": 0,
     "time": "2017-08-03T18:42:01.448Z",
     "tableNumber": 5,
     "items": [
@@ -89,6 +89,43 @@
 
   {
     "id": "ef19ead7-fe74-4d2c-a85d-1251526ee65d", 
+    "status": 2,
+    "time": "2017-08-03T18:11:01.448Z",
+    "tableNumber": 1,
+    "items": [
+      {
+          "id": "0b3c096a-3285-42f2-bef9-e91b62a81e44",
+          "name": "Steak",
+          "price": 25.99,
+          "url": "https://s-media-cache-ak0.pinimg.com/originals/a6/e7/8f/a6e78fbbae4fc248db47deb2fbf7c0f5.png",
+          "count": 3
+      },
+      {
+          "id": "5aae3953-df5f-4e49-ba17-ee556d0d1a26",
+          "name": "Pancakes",
+          "price": 16.49,
+          "url": "https://s-media-cache-ak0.pinimg.com/originals/29/ac/d3/29acd3eabc04b9b14f1d0c2171828e94.jpg",
+          "count": 3
+      },
+      {
+          "id": "796d3c2b-2246-4f96-abb4-080201e21ac8",
+          "name": "Coke 200ml",
+          "price": 2.99,
+          "url": "https://img1.cgtrader.com/items/8915/4be8cb50ae/coke-coca-cola-bottles-and-glass-3d-model-max-obj-3ds-fbx.jpg",
+          "count": 1
+      },
+      {
+          "id": "bbd5f4c5-f6eb-4478-ae7b-1d94bce5af5e",
+          "name": "Water 200ml",
+          "price": 0.99,
+          "url": "https://www.alleceny.pl/static/images/Aleceny_Model_Promotion_Table/big/snapshotimagehandler,ashxid=00626d47-2e72-358c-c04f-db9e028f3ee6_6ff81e656e5fc57d49b5c2cb1aba917d.jpg",
+          "count": 1
+      }
+    ]
+  },
+
+  {
+    "id": "54636781-05bc-4a9d-8bcb-20d7c05e6252", 
     "status": 2,
     "time": "2017-08-03T18:11:01.448Z",
     "tableNumber": 1,
