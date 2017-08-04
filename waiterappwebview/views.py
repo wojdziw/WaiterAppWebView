@@ -14,9 +14,16 @@ def index(request):
     return render(request, 'index.html')
 
 def getActiveOrders(request):
+    activeOrders = ActiveOrder.objects.all()
+    activeObjectList = activeOrders.values_list()
+    print (activeObjectList)
+
     os.path.join(os.path.dirname(os.path.dirname(__file__)),'orders.json')
     with open('orders.json') as json_data:
         return HttpResponse(json_data)
+
+    
+
 
 @api_view(['POST'])
 @parser_classes((JSONParser,))
