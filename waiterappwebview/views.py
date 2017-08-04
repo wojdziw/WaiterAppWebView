@@ -27,10 +27,14 @@ def postOrder(request):
 
         print (jsonData['id'])
 
-        # order = Order()
-        # order.save()
-
-        print (request.data)
-        # now save it to a DB
+        order = Order()
+        order.id = jsonData['id']
+        order.total = jsonData['total']
+        order.tip = jsonData['tip']
+        order.items = jsonData['items']
+        order.tableNumber = jsonData['tableNumber']
+        order.time = jsonData['time']
+        order.status = jsonData['status']
+        order.save()
 
     return HttpResponse(status=200)
