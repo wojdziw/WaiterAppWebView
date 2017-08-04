@@ -32,5 +32,6 @@ def postOrder(request):
             activeOrder = ActiveOrder()
             activeOrder.id = jsonData['id']
             activeOrder.orderJSON = jsonData
+            activeOrder.save()
                
     return HttpResponse(status=200)
