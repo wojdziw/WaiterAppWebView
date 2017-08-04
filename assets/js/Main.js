@@ -10,14 +10,14 @@ class Main extends Component {
   componentDidMount() {
       setInterval(() => {
         this.props.fetchOrders();
-      }, 5000)
+      }, 1000)
   }
 
   render() {
     return (
       <div>
         <NavBar />
-        { (Object.keys(this.props.orders).length > 1) &&
+        { (Object.keys(this.props.orders).length > 0) &&
           Object.values(this.props.orders).map((position) => {
             return (
               <Order key={position.id} id={position.id} {...this.props}/>
