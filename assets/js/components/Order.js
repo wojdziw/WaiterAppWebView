@@ -19,7 +19,7 @@ export class Order extends Component {
     <div className="container" style={{marginTop: 20, marginBottom: 20}}>
       <div style={{flex: 1, display: 'flex', flexDirection: 'column', borderStyle:'solid', borderWidth: '1px', borderColor: '#0182AC', borderRadius: '5px'}}>
         <div style={{flex: 1, display: 'flex', padding: "10px", borderBottomStyle:'dashed', borderWidth: '1px', borderColor: '#0182AC', fontWeight: 'bold'}}>
-          Order id: + {this.props.id} {this.props.orders[this.props.id]['status'] == 0 && this.state.onOff && " NEW! NEW! NEW!"} 
+          Order id: {this.props.id} {this.props.orders[this.props.id]['status'] == 0 && this.state.onOff && " NEW! NEW! NEW!"} 
         </div>
         <div style={{flex: 1, display: 'flex', flexDirection: 'row'}}>
           <div style={{flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', borderRightStyle:'dashed', borderWidth: '1px', borderColor: '#0182AC'}}>
