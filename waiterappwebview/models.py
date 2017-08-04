@@ -9,3 +9,7 @@ class Order(models.Model):
     tableNumber = models.CharField(max_length=200)
     time = models.DateTimeField()
     status = models.IntegerField()
+
+class ActiveOrder(models.Model):
+    id = models.CharField(max_length=200, primary_key=True)
+    orderJSON = JSONField()

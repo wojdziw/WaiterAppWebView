@@ -7,7 +7,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.decorators import parser_classes
 
-from .models import Order
+from .models import ActiveOrder
 
 # Create your views here.
 def index(request):
@@ -26,18 +26,11 @@ def postOrder(request):
         jsonData = request.data
 
         if (jsonData['status'] == 3):
-            completedOrder = Order.objects.get(id=jsonData['id'])
+            completedOrder = ActiveOrder.objects.get(id=jsonData['id'])
             completedOrder.delete()
         else:
-            order = Order()
-            order.id = jsonData['id']
-            order.total = jsonData['total']
-            order.tip = jsonData['tip']
-            order.items = jsonData['items']
-            order.tableNumber = jsonData['tableNumber']
-            order.time = jsonData['time']
-            order.status = jsonData['status']
-            order.save()
+            activeOrder = ActiveOrder()
+            activeOrder.id = jsonData['id']
+            activeOrder.orderJSON = jsonData
                
-
     return HttpResponse(status=200)
