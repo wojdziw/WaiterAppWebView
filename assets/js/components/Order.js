@@ -20,7 +20,7 @@ export class Order extends Component {
           <div style={{flex: 11, display: 'flex', flexDirection: 'column', justifyContent: 'center', fontWeight: 'bold'}}>
             {Object.values(this.props.orders[this.props.id]['items']).map((item, index) => {
               return (
-                <div key={this.props.id+"-"+item.id} style={{flex: 1, alignItems: 'center', display: 'flex'}}>{item.count} x {item.name}</div>
+                item.count>0 && <div key={this.props.id+"-"+item.id} style={{flex: 1, alignItems: 'center', display: 'flex'}}>{item.count} x {item.name}</div>
               )
             })}
             
