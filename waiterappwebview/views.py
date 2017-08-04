@@ -7,7 +7,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.decorators import parser_classes
 
-from .models import Greeting
+from .models import Order
 
 # Create your views here.
 def index(request):
