@@ -11,19 +11,24 @@ export class Order extends Component {
           <div style={{flex: 3, justifyContent: 'center', alignItems: 'center', display: 'flex'}}>Table number</div>
           <div style={{flex: 4, justifyContent: 'center', alignItems: 'center', display: 'flex', fontWeight: 'bold', borderBottomStyle:'dashed', borderWidth: '1', borderColor: '#0182AC'}}>{this.props.orders[this.props.id]['tableNumber']}</div>
           <div style={{flex: 3, justifyContent: 'center', alignItems: 'center', display: 'flex'}}>Order time</div>
-          <div style={{flex: 4, justifyContent: 'center', alignItems: 'center', display: 'flex', fontWeight: 'bold'}}>{new Date(this.props.orders[this.props.id]['time']).getHours() + ":" + new Date(this.props.orders[this.props.id]['time']).getMinutes()}</div>
+          <div style={{flex: 4, justifyContent: 'center', alignItems: 'center', display: 'flex', fontWeight: 'bold'}}>
+            {new Date(this.props.orders[this.props.id]['time']).getHours() 
+              + ":" + (new Date(this.props.orders[this.props.id]['time']).getMinutes()<10 ? "0" : "") + 
+            new Date(this.props.orders[this.props.id]['time']).getMinutes()}
+          </div>
         </div>
 
         <div style={{flex: 3, display: 'flex', flexDirection: 'column', justifyContent: 'center', borderRightStyle:'dashed', borderWidth: '1', borderColor: '#0182AC', paddingLeft: '10'}}>
           <div style={{flex: 3, display: 'flex', alignItems: 'center'}}>Order summary:</div>
 
           <div style={{flex: 11, display: 'flex', flexDirection: 'column', justifyContent: 'center', fontWeight: 'bold'}}>
+            <ul style={{listStyleType: 'none'}}>
             {Object.values(this.props.orders[this.props.id]['items']).map((item, index) => {
               return (
-                item.count>0 && <div key={this.props.id+"-"+item.id} style={{flex: 1, alignItems: 'center', display: 'flex'}}>{item.count} x {item.name}</div>
+                item.count>0 && <li key={this.props.id+"-"+item.id}>{item.count} x {item.name}</li>
               )
             })}
-            
+            </ul>
           </div>
         </div>
 
