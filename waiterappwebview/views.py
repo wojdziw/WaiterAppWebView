@@ -27,7 +27,7 @@ def postOrder(request):
 
         if (jsonData['status'] == 3):
             completedOrder = Order.objects.get(id=jsonData['id'])
-            remove(completedOrder)
+            completedOrder.delete()
         else:
             order = Order()
             order.id = jsonData['id']
