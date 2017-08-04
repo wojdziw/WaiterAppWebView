@@ -25,10 +25,10 @@ def postOrder(request):
 
         jsonData = request.data
 
-        if (jsonData['status' == 3]) {
+        if (jsonData['status'] == 3):
             completedOrder = Order.objects.get(id=jsonData['id'])
             remove(completedOrder)
-        } else {
+        else:
             order = Order()
             order.id = jsonData['id']
             order.total = jsonData['total']
@@ -38,8 +38,6 @@ def postOrder(request):
             order.time = jsonData['time']
             order.status = jsonData['status']
             order.save()
-        }
-
-        
+               
 
     return HttpResponse(status=200)
