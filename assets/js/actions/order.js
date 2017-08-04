@@ -42,7 +42,7 @@ export function sendOrder(id, status) {
 
     let order = getState().orders[id];
 
-    fetch('http://rocky-garden-79199.herokuapp.com/postOrder', {
+    fetch('https://rocky-garden-79199.herokuapp.com/postOrder', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
