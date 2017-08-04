@@ -16,7 +16,7 @@ def index(request):
 def getActiveOrders(request):
 
     activeObjectList = ActiveOrder.objects.all().values_list('orderJSON', flat=True)
-    print (activeObjectList)
+    print (list(activeObjectList))
 
     os.path.join(os.path.dirname(os.path.dirname(__file__)),'orders.json')
     with open('orders.json') as json_data:
