@@ -22,6 +22,14 @@ def getActiveOrders(request):
 @parser_classes((JSONParser,))
 def postOrder(request):
     if request.method == 'POST':
+
+        jsonData = request.data
+
+        print (jsonData['id'])
+
+        # order = Order()
+        # order.save()
+
         print (request.data)
         # now save it to a DB
 
