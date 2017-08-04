@@ -15,7 +15,7 @@ def index(request):
     return render(request, 'index.html')
 
 def getActiveOrders(request):
-    activeObjectList = ActiveOrder.objects.all().values_list('orderJSON', flat=True, order_by('time'))
+    activeObjectList = ActiveOrder.objects.all().order_by('time').values_list('orderJSON', flat=True)
     ordersJson = json.dumps(list(activeObjectList))
     return HttpResponse(ordersJson)
 
