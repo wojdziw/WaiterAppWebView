@@ -15,7 +15,7 @@ def index(request):
     return render(request, 'index.html')
 
 def getActiveOrders(request):
-    activeObjectList = ActiveOrder.objects.all().values_list('orderJSON', flat=True)
+    activeObjectList = ActiveOrder.objects.all().values_list('orderJSON', flat=True, order_by('time'))
     ordersJson = json.dumps(list(activeObjectList))
     return HttpResponse(ordersJson)
 
@@ -24,11 +24,7 @@ def getActiveOrders(request):
 @parser_classes((JSONParser,))
 def postOrder(request):
     if request.method == 'POST':
-
         jsonData = request.data
-
-        print(jsonData)
-
         if (jsonData['status'] == 3):
             completedOrder = ActiveOrder.objects.get(id=jsonData['id'])
             completedOrder.delete()

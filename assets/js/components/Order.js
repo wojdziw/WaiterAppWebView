@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class Order extends Component {
+export class Order extends Component {
 
   render() {
     return (
