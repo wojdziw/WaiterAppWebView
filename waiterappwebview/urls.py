@@ -8,5 +8,7 @@ import waiterappwebview.views
 urlpatterns = [
     url(r'^$', waiterappwebview.views.index, name='index'),
     url(r'^getActiveOrders', waiterappwebview.views.getActiveOrders, name='getActiveOrders'),
+    url(r'^postOrder', waiterappwebview.views.postOrder, name='postOrder'),
     url(r'^admin/', include(admin.site.urls)),
 ]
+
