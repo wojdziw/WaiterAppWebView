@@ -18,7 +18,6 @@ export function fetchOrders() {
     return response.text()
     })
     .then((responseText) => {
-      console.log(responseText)
       let ordersJson = JSON.parse(responseText)
       let orders = ordersJson.reduce((map, obj) => {
         map[obj.id] = obj;
@@ -26,5 +25,24 @@ export function fetchOrders() {
       }, {});
       dispatch(setOrders(orders));
     })    
+  }
+}
+
+export function sendOrder(id, status) {
+  return(dispatch, getState) => {
+    let order = getState().orders[id];
+    order['status'] = status;
+
+    fetch('http://rocky-garden-79199.herokuapp.com/postOrder', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(order)
+    })
+    .then(response => {
+    console.log(response.text())
+    })
   }
 }
