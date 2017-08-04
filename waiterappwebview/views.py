@@ -25,8 +25,6 @@ def postOrder(request):
 
         jsonData = request.data
 
-        print (jsonData['id'])
-
         order = Order()
         order.id = jsonData['id']
         order.total = jsonData['total']
