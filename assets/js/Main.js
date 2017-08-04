@@ -10,7 +10,7 @@ class Main extends Component {
   componentDidMount() {
       setInterval(() => {
         this.props.fetchOrders();
-      }, 1000)
+      }, 5000)
   }
 
   render() {
