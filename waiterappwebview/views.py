@@ -14,8 +14,8 @@ def index(request):
     return render(request, 'index.html')
 
 def getActiveOrders(request):
-    activeOrders = ActiveOrder.objects.all()
-    activeObjectList = activeOrders.values_list()
+
+    activeObjectList = ActiveOrder.objects.all().values_list('orderJSON', flat=True)
     print (activeObjectList)
 
     os.path.join(os.path.dirname(os.path.dirname(__file__)),'orders.json')
