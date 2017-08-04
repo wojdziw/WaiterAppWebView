@@ -28,10 +28,23 @@ export function fetchOrders() {
   }
 }
 
+export function setStatus(status, id) {
+  return {
+    type: types.SET_STATUS,
+    status,
+    id
+  }
+}
+
 export function sendOrder(id, status) {
   return(dispatch, getState) => {
     let order = getState().orders[id];
     order['status'] = status;
+    console.log("id to change: " + id);
+    //console.log(status);
+    console.log(order['tableNumber']);
+
+    dispatch(setStatus(status, id));
 
     fetch('http://rocky-garden-79199.herokuapp.com/postOrder', {
       method: 'POST',

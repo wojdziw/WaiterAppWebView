@@ -11,8 +11,6 @@ class Main extends Component {
       setInterval(() => {
         this.props.fetchOrders();
       }, 5000)
-    
-    
   }
 
   render() {

@@ -35,6 +35,7 @@ def postOrder(request):
         else:
             activeOrder = ActiveOrder()
             activeOrder.id = jsonData['id']
+            activeOrder.time = jsonData['time']
             activeOrder.orderJSON = jsonData
             activeOrder.save()
                

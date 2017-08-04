@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-export class Order extends Component {
+class Order extends Component {
 
   render() {
     return (
@@ -38,7 +38,7 @@ export class Order extends Component {
             <div style={{flex: 1, justifyContent: 'center', alignItems: 'center', display: 'flex', padding: '10'}}>
               {
                 this.props.orders[this.props.id]['status'] > 0 ?
-                <button type="button" className="btn btn-success">✓</button> : <button type="button" className="btn btn-danger" onPress={this.props.sendOrder(this.props.id, 1)}>x</button>
+                <button type="button" className="btn btn-success">✓</button> : <button onClick={() => {this.props.sendOrder(this.props.id, 1)}} type="button" className="btn btn-danger">x</button>
               }
             </div>
           </div>

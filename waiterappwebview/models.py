@@ -12,4 +12,5 @@ class Order(models.Model):
 
 class ActiveOrder(models.Model):
     id = models.CharField(max_length=200, primary_key=True)
+    time = models.DateTimeField()
     orderJSON = JSONField()
