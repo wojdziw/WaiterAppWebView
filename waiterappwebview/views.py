@@ -25,14 +25,21 @@ def postOrder(request):
 
         jsonData = request.data
 
-        order = Order()
-        order.id = jsonData['id']
-        order.total = jsonData['total']
-        order.tip = jsonData['tip']
-        order.items = jsonData['items']
-        order.tableNumber = jsonData['tableNumber']
-        order.time = jsonData['time']
-        order.status = jsonData['status']
-        order.save()
+        if (jsonData['status' == 3]) {
+            completedOrder = Order.objects.get(id=jsonData['id'])
+            remove(completedOrder)
+        } else {
+            order = Order()
+            order.id = jsonData['id']
+            order.total = jsonData['total']
+            order.tip = jsonData['tip']
+            order.items = jsonData['items']
+            order.tableNumber = jsonData['tableNumber']
+            order.time = jsonData['time']
+            order.status = jsonData['status']
+            order.save()
+        }
+
+        
 
     return HttpResponse(status=200)
