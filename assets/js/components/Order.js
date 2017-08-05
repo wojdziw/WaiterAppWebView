@@ -17,9 +17,14 @@ export class Order extends Component {
   render() {
     return (
     <div className="container" style={{marginTop: 20, marginBottom: 20}}>
-      <div style={{flex: 1, display: 'flex', flexDirection: 'column', borderStyle:'solid', borderWidth: '1px', borderColor: '#0182AC', borderRadius: '5px'}}>
-        <div style={{flex: 1, display: 'flex', padding: "10px", borderBottomStyle:'dashed', borderWidth: '1px', borderColor: '#0182AC', fontWeight: 'bold'}}>
-          Order id: {this.props.id} {this.props.orders[this.props.id]['status'] == 0 && this.state.onOff && " NEW! NEW! NEW!"} 
+      <div style={{flex: 1, display: 'flex', flexDirection: 'column', borderStyle: 'solid', borderWidth: '1px', borderColor: '#0182AC', borderRadius: '5px'}}>
+        <div style={{flex: 1, display: 'flex', flexDirection: 'row', borderBottomStyle:'dashed', borderWidth: '1px', borderColor: '#0182AC', fontWeight: 'bold'}}>
+          <div style={{width: "30px",  display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#8B0000', fontSize: '20px'}}>
+            {this.props.orders[this.props.id]['status'] == 0 && this.state.onOff && "●"}
+          </div>
+          <div style={{flex: 1, display: 'flex', paddingTop: "10px", paddingBottom: "10px"}}>
+            Order id: {this.props.id}  
+          </div>
         </div>
         <div style={{flex: 1, display: 'flex', flexDirection: 'row'}}>
           <div style={{flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', borderRightStyle:'dashed', borderWidth: '1px', borderColor: '#0182AC'}}>
@@ -53,11 +58,11 @@ export class Order extends Component {
               <div style={{flex: 1, justifyContent: 'center', alignItems: 'center', display: 'flex', padding: '10px'}}>
                 { 
                   this.props.orders[this.props.id]['status'] == 0 &&
-                  <button onClick={() => {this.props.sendOrder(this.props.id, 1)}} type="button" className="btn btn-danger" style={{cursor:'pointer'}}>x</button>
+                  <button onClick={() => {this.props.sendOrder(this.props.id, 1)}} type="button" className="btn btn-danger" style={{cursor:'pointer', width: '80px'}}>x</button>
                 }
                 { 
                   this.props.orders[this.props.id]['status'] > 0 &&
-                  <button onClick={() => {this.props.sendOrder(this.props.id, 0)}} type="button" className="btn btn-success" style={{cursor:'pointer'}}>✓</button>
+                  <button onClick={() => {this.props.sendOrder(this.props.id, 0)}} type="button" className="btn btn-success" style={{cursor:'pointer', width: '80px'}}>✓</button>
                 }
               </div>
             </div>
@@ -66,15 +71,15 @@ export class Order extends Component {
               <div style={{flex: 1, justifyContent: 'center', alignItems: 'center', display: 'flex', padding: '10px'}}>
                 { 
                   this.props.orders[this.props.id]['status'] == 0 &&
-                  <button type="button" className="btn btn-danger disabled" style={{cursor:'pointer'}}>x</button>
+                  <button type="button" className="btn btn-danger disabled" style={{cursor:'pointer', width: '80px'}}>x</button>
                 }
                 { 
                   this.props.orders[this.props.id]['status'] == 1 &&
-                  <button onClick={() => {this.props.sendOrder(this.props.id, 2)}} type="button" className="btn btn-danger" style={{cursor:'pointer'}}>x</button>
+                  <button onClick={() => {this.props.sendOrder(this.props.id, 2)}} type="button" className="btn btn-danger" style={{cursor:'pointer', width: '80px'}}>x</button>
                 }
                 { 
                   this.props.orders[this.props.id]['status'] == 2 &&
-                  <button onClick={() => {this.props.sendOrder(this.props.id, 1)}} type="button" className="btn btn-success" style={{cursor:'pointer'}}>✓</button>
+                  <button onClick={() => {this.props.sendOrder(this.props.id, 1)}} type="button" className="btn btn-success" style={{cursor:'pointer', width: '80px'}}>✓</button>
                 }
               </div>
             </div>
@@ -83,11 +88,11 @@ export class Order extends Component {
               <div style={{flex: 1, justifyContent: 'center', alignItems: 'center', display: 'flex', padding: '10px'}}>
                 { 
                   this.props.orders[this.props.id]['status'] < 2 &&
-                  <button type="button" className="btn btn-danger disabled" style={{cursor:'pointer'}}>x</button>
+                  <button type="button" className="btn btn-danger disabled" style={{cursor:'pointer', width: '80px'}}>x</button>
                 }
                 { 
                   this.props.orders[this.props.id]['status'] == 2 &&
-                  <button onClick={() => {if (confirm("The " + this.props.orders[this.props.id]['tableNumber'] + " position will now be erased")) {this.props.sendOrder(this.props.id, 3)}}} type="button" className="btn btn-danger" style={{cursor:'pointer'}}>x</button>
+                  <button onClick={() => {if (confirm("The " + this.props.orders[this.props.id]['tableNumber'] + " position will now be erased")) {this.props.sendOrder(this.props.id, 3)}}} type="button" className="btn btn-danger" style={{cursor:'pointer', width: '80px'}}>x</button>
                 }
               </div>
             </div> 
