@@ -78,7 +78,7 @@ export class Order extends Component {
                   <button onClick={() => {this.props.sendOrder(this.props.id, 2)}} type="button" className="btn btn-danger" style={{cursor:'pointer', width: '80px'}}>x</button>
                 }
                 { 
-                  this.props.orders[this.props.id]['status'] == 2 &&
+                  this.props.orders[this.props.id]['status'] >= 2 &&
                   <button onClick={() => {this.props.sendOrder(this.props.id, 1)}} type="button" className="btn btn-success" style={{cursor:'pointer', width: '80px'}}>✓</button>
                 }
               </div>
@@ -93,6 +93,10 @@ export class Order extends Component {
                 { 
                   this.props.orders[this.props.id]['status'] == 2 &&
                   <button onClick={() => {if (confirm("The " + this.props.orders[this.props.id]['tableNumber'] + " position will now be erased")) {this.props.sendOrder(this.props.id, 3)}}} type="button" className="btn btn-danger" style={{cursor:'pointer', width: '80px'}}>x</button>
+                }
+                { 
+                  this.props.orders[this.props.id]['status'] == 3 &&
+                  <button type="button" className="btn btn-success" style={{cursor:'pointer', width: '80px'}}>✓</button>
                 }
               </div>
             </div> 

@@ -11695,7 +11695,7 @@ var Order = exports.Order = function (_Component) {
                       }, type: 'button', className: 'btn btn-danger', style: { cursor: 'pointer', width: '80px' } },
                     'x'
                   ),
-                  this.props.orders[this.props.id]['status'] == 2 && _react2.default.createElement(
+                  this.props.orders[this.props.id]['status'] >= 2 && _react2.default.createElement(
                     'button',
                     { onClick: function onClick() {
                         _this3.props.sendOrder(_this3.props.id, 1);
@@ -11728,6 +11728,11 @@ var Order = exports.Order = function (_Component) {
                         }
                       }, type: 'button', className: 'btn btn-danger', style: { cursor: 'pointer', width: '80px' } },
                     'x'
+                  ),
+                  this.props.orders[this.props.id]['status'] == 3 && _react2.default.createElement(
+                    'button',
+                    { type: 'button', className: 'btn btn-success', style: { cursor: 'pointer', width: '80px' } },
+                    '\u2713'
                   )
                 )
               )
